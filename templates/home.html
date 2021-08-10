@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Homepage - {{ block.super }} {% endblock %}
+
+{% block body %}
+
+
+
+    Burası Anasayfa
+
+    <br><br><br>
+
+    Hoşgeldiniz, Kullanıcı: {{ request.user }}
+
+
+
+{% endblock %}

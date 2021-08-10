@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="img-thumbnail">
+
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" class="img-thumbnail" width="500" height="500">
+                    {% endif %}
+
+                        <br><h4>{{ post.title }}<small> - {{ post.publishing_date|timesince }} önce</small></h4>
+
+                        <br><h5>Yazar: {{ post.user.get_full_name }}</h5>
+
+                        <br><p>{{ post.content|safe|linebreaks }}</p>
+
+                </div>
+
+                <br><br><hr><br><br>
+
+
+                <h4>Yorum Ekle</h4>
+
+                {% include "post/comment.html" %}
+
+                <br><br><hr><br><br>
+
+            <h2>YORUMLAR</h2><hr> <br>
+
+                {% for comment in post.comments.all %}
+                    <hr4>{{ comment.name }} <small> - {{ comment.created_date|timesince }} önce</small></hr4>
+                    <p>{{ comment.content|linebreaks }}</p>
+                    <br><hr><br>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
