@@ -27,7 +27,7 @@ https://www.google.com/recaptcha/about/
 
 ### Please don't forget to execute these commands:
 ```
-python3 manage.py migrate --run-syncdb
-python3 manage.py makemigrations
 python3 manage.py migrate
+python3 manage.py makemigrations
+python3 manage.py migrate --run-syncdb
 ```
